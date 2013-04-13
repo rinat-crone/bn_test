@@ -3,10 +3,10 @@ groups:
     id: 1
     name: Город без центра
   -
-    id: 2
+    id: 3
     name: Область
   -
-    id: 3
+    id: 2
     name: Пригороды
   -
     id: 4
@@ -36,7 +36,7 @@ areas:
   -
     id: 271
     name: Колпинский
-    group: 3
+    group: 2
   -
     id: 40
     name: Красногвардейский
@@ -48,11 +48,11 @@ areas:
   -
     id: 272
     name: Кронштадский
-    group: 3
+    group: 2
   -
     id: 273
     name: Курортный
-    group: 3
+    group: 2
   -
     id: 42
     name: Московский
@@ -64,7 +64,7 @@ areas:
   -
     id: 100
     name: Область
-    group: 2
+    group: 3
   -
     id: 44
     name: Петроградский
@@ -72,7 +72,7 @@ areas:
   -
     id: 275
     name: Петродворцовый
-    group: 3
+    group: 2
   -
     id: 45
     name: Приморский
@@ -80,7 +80,7 @@ areas:
   -
     id: 276
     name: Пушкинский
-    group: 3
+    group: 2
   -
     id: 46
     name: Фрунзенский
