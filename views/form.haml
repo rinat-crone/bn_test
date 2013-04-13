@@ -89,7 +89,7 @@
                 .span6
                   - groups.each do |group|
                     %label.checkbox
-                      %input{ type: 'checkbox', name: "group#{group["id"]}", value: group["id"] }
+                      %input{ type: 'checkbox', name: "r#{group["id"]}", value: group["id"] }
                       = group["name"]
 
           .span6
