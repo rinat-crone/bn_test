@@ -13,7 +13,10 @@ get '/' do
 end
 
 get '/search' do
-  packed_params = params.map{ |k, v| "#{k}=#{v}" }.join "&"
+  packed_params = params.map{ |key, value|
+    value.is_a?(Array) ? value.map{ |v| "#{key}[]=#{v}" } : "#{key}=#{value}"
+  }.join "&"
+
   url = "http://www.bn.ru/zap_fl.phtml?#{packed_params}"
   page = Nokogiri::HTML(open(url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
 
