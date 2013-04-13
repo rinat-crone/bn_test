@@ -1,0 +1,44 @@
+groups:
+  -
+    id: 4
+    name: Без ванной
+  -
+    id: 1
+    name: Раздельный
+  -
+    id: 2
+    name: Совмещенный
+
+types:
+  -
+    id: 36
+    name: Без ванны
+    group: 4
+  -
+    id: 37
+    name: Ванна на кухне
+    group: 4
+  -
+    id: 38
+    name: Два
+    group: 1
+  -
+    id: 110
+    name: Душ
+    group: 4
+  -
+    id: 300
+    name: Душ на кухне
+    group: 4
+  -
+    id: 34
+    name: Раздельный
+    group: 1
+  -
+    id: 35
+    name: Совмещенный
+    group: 2
+  -
+    id: 109
+    name: Три
+    group: 1

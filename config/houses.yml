@@ -1,0 +1,147 @@
+groups:
+  -
+    id: 2
+    name: Кирпич
+  -
+    id: 7
+    name: Монолит
+  -
+    id: 6
+    name: Остальные
+  -
+    id: 3
+    name: Современная панель
+  -
+    id: 4
+    name: Сталинские
+  -
+    id: 1
+    name: Старая панель
+  -
+    id: 5
+    name: Старый Фонд
+types:
+  -
+    id: 262
+    name: 1.090.1 серия
+    group: 3
+  -
+    id: 29
+    name: 121 серия
+    group: 3
+  -
+    id: 23
+    name: 137 серия
+    group: 3
+  -
+    id: 25
+    name: 504 серия
+    group: 1
+  -
+    id: 265
+    name: 504Д серия
+    group: 1
+  -
+    id: 30
+    name: 600 серия
+    group: 1
+  -
+    id: 115
+    name: 600.11 серия
+    group: 3
+  -
+    id: 113
+    name: 601 серия
+    group: 1
+  -
+    id: 114
+    name: 602 серия
+    group: 1
+  -
+    id: 24
+    name: 606 серия
+    group: 3
+  -
+    id: 266
+    name: 611 серия
+    group: 3
+  -
+    id: 271
+    name: Блочно-монолитный
+    group: 7
+  -
+    id: 17
+    name: Блочный
+    group: 1
+  -
+    id: 26
+    name: Брежневка
+    group: 1
+  -
+    id: 117
+    name: Деревянный
+    group: 6
+  -
+    id: 31
+    name: Индивидуальный
+    group: 6
+  -
+    id: 108
+    name: Кирпично-монолитный
+    group: 2
+  -
+    id: 22
+    name: Кирпичный
+    group: 2
+  -
+    id: 20
+    name: Корабль
+    group: 1
+  -
+    id: 116
+    name: Коттедж
+    group: 6
+  -
+    id: 272
+    name: Мансарда
+    group: 6
+  -
+    id: 27
+    name: Монолит
+    group: 7
+  -
+    id: 270
+    name: Монолитно-панельный
+    group: 7
+  -
+    id: 118
+    name: Немецкий
+    group: 6
+  -
+    id: 18
+    name: Новый блочный
+    group: 3
+  -
+    id: 19
+    name: Панельный
+    group: 1
+  -
+    id: 264
+    name: Реконструкция
+    group: 6
+  -
+    id: 16
+    name: Ст. фонд. кап. рем.
+    group: 5
+  -
+    id: 21
+    name: Сталинский
+    group: 4
+  -
+    id: 15
+    name: Старый фонд
+    group: 5
+  -
+    id: 28
+    name: Хрущевка
+    group: 1

@@ -1,0 +1,175 @@
+%form.padded-bottom
+  .container
+    .row-fluid
+      .span4
+        %fieldset.padded-bottom
+          %legend Основные параметры
+          .row-fluid.padded-top
+            .span7
+              %label{ for: 'kkv1' } Количество комнат
+            .span2
+              %input.span12.text-center#kkv1{ name: 'kkv1', placeholder: 'от' }
+            .span1.text-center
+              &mdash;
+            .span2
+              %input.span12.text-center{ name: 'kkv2', placeholder: 'до' }
+          .row-fluid.padded-top
+            .span7
+              %label{ for: 'price1' } Цена (тыс. руб.)
+            .span2
+              %input.span12.text-center#price1{ name: 'price1', placeholder: 'от' }
+            .span1.text-center
+              &mdash;
+            .span2
+              %input.span12.text-center{ name: 'price2', placeholder: 'до' }
+          .row-fluid.padded-top
+            .span7
+              %label{ for: 'pr1m1' } Цена за м<sup>2</sup> (руб.)
+            .span2
+              %input.span12.text-center#pr1m1{ name: 'pr1m1', placeholder: 'от' }
+            .span1.text-center
+              &mdash;
+            .span2
+              %input.span12.text-center{ name: 'pr1m2', placeholder: 'до' }
+          .row &nbsp;
+          %label.checkbox
+            %input{ type: 'checkbox' }
+            Выводить объекты без цены
+          %label.checkbox
+            %input{ type: 'checkbox' }
+            Возможность кредита
+
+        %fieldset
+          %legend Площадь (м<sup>2</sup>)
+          .row-fluid.padded-top
+            .span7
+              %label{ for: 'so1' } Общая
+            .span2
+              %input.span12.text-center#so1{ name: 'so1', placeholder: 'от' }
+            .span1.text-center
+              &mdash;
+            .span2
+              %input.span12.text-center{ name: 'so2', placeholder: 'до' }
+          .row-fluid.padded-top
+            .span7
+              %label{ for: 'sg1' } Жилая
+            .span2
+              %input.span12.text-center#sg1{ name: 'sg1', placeholder: 'от' }
+            .span1.text-center
+              &mdash;
+            .span2
+              %input.span12.text-center{ name: 'sg2', placeholder: 'до' }
+          .row-fluid.padded-top
+            .span7
+              %label{ for: 'sk1' } Кухня
+            .span2
+              %input.span12.text-center#sk1{ name: 'sk1', placeholder: 'от' }
+            .span1.text-center
+              &mdash;
+            .span2
+              %input.span12.text-center{ name: 'sk2', placeholder: 'до' }
+
+      %fieldset.span8
+        %legend Местоположение
+
+        .row-fluid
+          .span6
+            %strong.padded-bottom.padded-top.dib Район города
+            .row-fluid
+              - @areas["areas"].each_slice((@areas["areas"].size / 2.0).ceil) do |areas|
+                .span6
+                  - areas.each do |area|
+                    %label.checkbox
+                      %input{ type: 'checkbox', name: "region#{area["id"]}", value: area["id"], data: { area: { group: area["group"] } } }
+                      = area["name"]
+
+            %strong.padded-bottom.padded-top.dib Группа районов
+            .row-fluid.area-groups
+              - @areas["groups"].each_slice((@areas["groups"].size / 2.0).ceil) do |groups|
+                .span6
+                  - groups.each do |group|
+                    %label.checkbox
+                      %input{ type: 'checkbox', name: "group#{group["id"]}", value: group["id"] }
+                      = group["name"]
+
+          .span6
+            .row-fluid
+              %strong.padded-top.padded-bottom.dib.span8 Метро
+              .span4.text-right
+                %label.checkbox.padded-top
+                  %input{ type: 'checkbox', name: 'near_metro', value: 1 } рядом с метро
+            .row-fluid
+              %select.span12{ size: 19, name: 'metro[]', multiple: true }
+                - @areas["stations"].each do |station|
+                  %option{ value: station["id"] }= station["name"]
+            .row-fluid
+
+    .row-fluid.padded-bottom
+      %fieldset.span4
+        %legend Дополнительно
+        %label.checkbox.padded-top
+          %input{ type: 'checkbox', name: 'pp', value: 1 }
+          Прямая продажа
+        %label.checkbox
+          %input{ type: 'checkbox', name: 'vp', value: 1 }
+          Встречная покупка
+        %label.checkbox
+          %input{ type: 'checkbox', name: 'firsttimer', value: 1 }
+          Впервые выставленный
+        %label.checkbox.padded-top
+          %input{ type: 'checkbox', name: 'tel', value: 1 }
+          Наличие телефона
+        %strong.padded-bottom.padded-top.dib Этаж
+        .row-fluid
+          .span6
+            %label.checkbox
+              %input{ type: 'checkbox', name: 'first', value: 1 }
+              Не первый
+            %label.checkbox
+              %input{ type: 'checkbox', name: 'is_first', value: 1 }
+              Первый
+          .span6
+            %label.checkbox
+              %input{ type: 'checkbox', name: 'last', value: 1 }
+              Не последний
+            %label.checkbox
+              %input{ type: 'checkbox', name: 'is_last', value: 1 }
+              Последний
+      %fieldset.span4
+        %legend Дом
+        .row-fluid.padded-top
+          - @houses["types"].each_slice((@houses["types"].size / 2.0).ceil) do |types|
+            .span6
+              - types.each do |type|
+                %label.checkbox
+                  %input{ type: 'checkbox', name: 'dom[]', value: type["id"], data: { house: { group: type["group"] } } }
+                  = type["name"]
+        %strong.padded-bottom.padded-top.dib Группа домов
+        .row-fluid.house-groups
+          - @houses["groups"].each_slice((@houses["groups"].size / 2.0).ceil) do |groups|
+            .span6
+              - groups.each do |group|
+                %label.checkbox
+                  %input{ type: 'checkbox', name: "d#{group["id"]}", value: 1, data: { house: { group: group["id"] } } }
+                  = group["name"]
+      %fieldset.span4
+        %legend Санузел
+        .row-fluid.padded-top
+          - @wc["types"].each_slice((@wc["types"].size / 2.0).ceil) do |types|
+            .span6
+              - types.each do |type|
+                %label.checkbox
+                  %input{ type: 'checkbox', name: 'san[]', value: type["id"], data: { wc: { group: type["group"] } } }
+                  = type["name"]
+        %strong.padded-bottom.padded-top.dib Тип санузла
+        .row-fluid.wc-groups
+          - @wc["groups"].each_slice((@wc["groups"].size / 2.0).ceil) do |groups|
+            .span6
+              - groups.each do |group|
+                %label.checkbox
+                  %input{ type: 'checkbox', name: "s#{group["id"]}", value: 1, data: { wc: { group: group["id"] } } }
+                  = group["name"]
+
+    .form-actions.bordered-top.text-center
+      %input.btn.btn-primary.btn-large{ type: 'submit', value: 'Найти подходящие варианты' }
+
