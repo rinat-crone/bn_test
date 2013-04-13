@@ -3,4 +3,7 @@ $ ->
   $(".house-groups input[type=checkbox]").on "change", -> $("form input[data-house-group=#{$(@).data('house-group')}]").prop "checked", $(@).is(':checked')
   $(".wc-groups input[type=checkbox]").on "change",    -> $("form input[data-wc-group=#{$(@).data('wc-group')}]").prop "checked", $(@).is(':checked')
   $("form").on "submit", ->
+    data = $("form").serializeArray()
+    $.get '/search', data, (d) ->
+      console.log d
     false
