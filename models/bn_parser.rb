@@ -36,7 +36,10 @@ class BnParser
 
           tds.each_with_index do |td, index|
             matches = td.inner_html.match %r{open_photo_image \(this, '(.*?)',}m
+            link_matches = td.inner_html.scan %r{(detail/.*?)\"}m
+
             r.last[keys_set[index]] = (matches ? "http://static.bn.ru/images/photo/#{matches[1]}" : td.text.strip)
+            r.last["link"] = "http://www.bn.ru/#{link_matches[0][0]}" if link_matches && link_matches.flatten.any?
           end
         end
       end

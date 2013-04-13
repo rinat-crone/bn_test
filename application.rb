@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'yaml'
 require 'json'
+require 'haml'
+require 'sass'
+require 'coffee_script'
 require './models/bn_parser'
 
 get '/' do
