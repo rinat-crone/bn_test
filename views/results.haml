@@ -1,0 +1,32 @@
+.container
+  %h2 Результаты поиска
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Ком
+        %th Адрес
+        %th Этаж
+        %th Дом
+        %th S общ.
+        %th S жил.
+        %th S кух.
+        %th С/у
+        %th Цена, т.р.
+        %th Субъект
+        %th Контакт
+        %th Дополнительно
+    %tbody
+      - @results[:results].each do |result|
+        %tr
+          %td= result["rooms"]
+          %td= result["address"]
+          %td= result["floor"]
+          %td= result["house"]
+          %td= result["area_gross"]
+          %td= result["area_living"]
+          %td= result["area_kitchen"]
+          %td= result["wc"]
+          %td= result["price"]
+          %td= result["subject"]
+          %td= result["contacts"]
+          %td= result["info"]
