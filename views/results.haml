@@ -22,7 +22,8 @@
             - if result["image"].empty?
               = result["rooms"]
             - else
-              %i.icon-camera
+              %a{ href: result["link"], target: '_blank', rel: 'popover', data: { image: result["image"] } }
+                %i.icon-camera
           %td
             %a{ href: result["link"], target: '_blank' }= result["address"]
           %td= result["floor"]

@@ -14,20 +14,29 @@ $ ->
 
     $.get '/search', data, (d) ->
       currentPage = page
+
       $('#results').html d
       $(".pager .previous").addClass "disabled" if page is 1
       $(".pager").removeClass "hide"
       $('input[type=submit]').prop 'disabled', false
+
       $('html, body').animate
         scrollTop: $("#results").offset().top
       , 1000
-      $(".pager .previous a").on "click", ->
-        loadSearchResults(currentPage - 1) if currentPage isnt 1
-        false
-      $(".pager .next a").on "click", ->
-        loadSearchResults(currentPage + 1) if currentPage isnt 20
-        false
+
+      $('a[rel=popover]').popover
+        html: true
+        trigger: 'hover'
+        placement: 'top'
+        content: -> "<img src='#{$(@).data('image')}'>"
 
   $('form').on 'submit', ->
     loadSearchResults()
+    false
+
+  $("#results").on "click", ".previous a", ->
+    loadSearchResults(currentPage - 1) if currentPage isnt 1
+    false
+  $("#results").on "click", ".next a", ->
+    loadSearchResults(currentPage + 1) if currentPage isnt 20
     false
